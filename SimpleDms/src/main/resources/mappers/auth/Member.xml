@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.simpledms.mapper.auth.MemberMapper">
+
+    <!-- 회원가입 -->
+    <insert id="insert" parameterType="Member">
+        INSERT INTO TB_MEMBER(EMAIL,PASSWORD,NAME,CODE_NAME)
+        VALUES(#{email},#{password},#{name},#{codeName})
+    </insert>
+
+    <!-- 우리 회원인지 확인 -->
+    <select id="existsById" parameterType="String" resultType="long">
+        SELECT COUNT(*) FROM TB_MEMBER
+        WHERE EMAIL = #{email}
+    </select>
+
+    <!-- 회원 상세조회 -->
+    <select id="selectMember" parameterType="String" resultType="Member">
+        SELECT * FROM TB_MEMBER
+        WHERE EMAIL = #{email}
+    </select>
+
+</mapper>

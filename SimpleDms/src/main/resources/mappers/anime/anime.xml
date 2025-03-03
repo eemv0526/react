@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.simplecoding.simpledms.mapper.anime.AnimeMapper">
+
+
+
+    <select id="selectAnimeList" parameterType="Criteria" resultType="Anime">
+        SELECT * FROM ANIME_RV
+        WHERE 1=1
+        <if test="uuid != null">
+            AND UUID = #{uuid}
+        </if>
+        ORDER BY CREATE_AT DESC  <!-- 여기를 실제 컬럼명으로 변경 -->
+    </select>
+
+    <select id="selectAnimeListTotCnt" parameterType="Criteria" resultType="int">
+        SELECT COUNT(*) FROM ANIME_RV
+        WHERE 1=1
+        <if test="uuid != null">
+            AND UUID = #{uuid}
+        </if>
+    </select>
+
+
+
+    <insert id="insert"
+            parameterType="Anime">
+        INSERT INTO ANIME_RV(ANIME_ID,
+                           ANIME_COMMENT,
+                           EMAIL, CREATE_AT, RATING, UUID)
+        VALUES (ANIME_RV_SEQ.NEXTVAL,
+                #{animeComment},
+                #{email}, SYSTIMESTAMP, #{rating}, #{uuid})
+    </insert>
+
+
+    <select id="selectAnime"
+            parameterType="int"
+            resultType="Anime">
+        SELECT * FROM ANIME_RV
+        WHERE ANIME_ID = #{animeId}
+    </select>
+
+
+    <update id="update"
+            parameterType="Anime">
+        UPDATE ANIME_RV
+        SET
+            ANIME_COMMENT=#{animeComment},
+            RATING = #{rating}
+
+
+        WHERE ANIME_ID = #{animeId}
+    </update>
+
+
+    <delete id="delete"
+            parameterType="int">
+        DELETE ANIME_RV WHERE ANIME_ID = #{animeId}
+    </delete>
+
+    <!-- 평균 평점 계산 -->
+    <select id="getAverageRatingByUuid" resultType="Double">
+        SELECT
+            NVL(AVG(RATING), 0)
+        FROM
+            ANIME_RV
+        WHERE
+            UUID = #{uuid}
+    </select>
+
+
+
+
+</mapper>

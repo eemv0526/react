@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.simplecoding.simpledms.mapper.gongji.GongjiMapper">
+
+    <select id="selectGongjiList"
+            parameterType="Criteria"
+            resultType="Gongji">
+        SELECT * FROM GONGJI
+        WHERE TITLE LIKE '%'|| #{searchKeyword} ||'%'
+        OFFSET #{pageIndex} * #{recordCountPerPage} ROWS
+            FETCH NEXT #{recordCountPerPage} ROWS ONLY
+    </select>
+
+    <select id="selectGongjiListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*) FROM GONGJI
+        WHERE TITLE LIKE '%' ||#{searchKeyword}|| '%'
+    </select>
+
+    <insert id="insert" parameterType="gongji">
+        INSERT INTO GONGJI (GNO, TITLE, CONTENT, INSERT_TIME)
+        VALUES (GONGJI_SEQ.NEXTVAL, #{title}, #{content}, #{insertTime})
+    </insert>
+
+    <select id="selectGongji"
+            parameterType="int"
+            resultType="Gongji">
+        SELECT * FROM GONGJI
+        WHERE GNO = #{gno}
+    </select>
+
+    <update id="update"
+            parameterType="Gongji">
+        UPDATE GONGJI
+        SET  TITLE=#{title},
+             content=#{content}
+        WHERE GNO = #{gno}
+    </update>
+
+
+    <delete id="delete"
+            parameterType="int">
+        DELETE GONGJI WHERE GNO = #{gno}
+    </delete>
+
+
+
+
+
+
+
+</mapper>

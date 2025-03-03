@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- Settings 설정 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <!-- TODO: 별칭 설정 -->
+    <typeAliases>
+        <typeAlias type="com.simplecoding.simpledms.vo.common.Criteria" alias="Criteria"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.auth.Member" alias="Member"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.basic.Dept" alias="Dept"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.basic.Emp" alias="Emp"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.advanced.FileDb" alias="FileDb"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.advanced.Gallery" alias="Gallery"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.home.Home" alias="Home"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.gongji.Gongji" alias="Gongji"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.sign.Sign" alias="Sign"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.board.Board" alias="Board"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.anime.Anime" alias="Anime"/>
+
+    </typeAliases>
+
+
+</configuration>

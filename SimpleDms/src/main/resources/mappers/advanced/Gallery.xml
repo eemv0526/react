@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.simpledms.mapper.advanced.GalleryMapper">
+    <select id="selectGalleryList"
+            parameterType="Criteria"
+            resultType="Gallery">
+        SELECT *
+        FROM TB_GALLERY
+        WHERE GALLERY_TITLE LIKE '%' || #{searchKeyword} || '%'
+        OFFSET #{pageIndex} * #{recordCountPerPage} ROWS FETCH NEXT #{recordCountPerPage} ROWS ONLY
+    </select>
+
+    <select id="selectGalleryListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*)
+        FROM TB_GALLERY
+        WHERE GALLERY_TITLE LIKE '%' || #{searchKeyword} || '%'
+    </select>
+
+    <insert id="insert"
+            parameterType="Gallery">
+        INSERT INTO TB_GALLERY(UUID,
+                               GALLERY_TITLE,
+                               GALLERY_DATA,
+                               GALLERY_FILE_URL)
+        VALUES (#{uuid},
+                #{galleryTitle},
+                #{galleryData},
+                #{galleryFileUrl})
+    </insert>
+
+    <select id="selectGallery"
+            parameterType="String"
+            resultType="Gallery">
+        SELECT *
+        FROM TB_GALLERY
+        WHERE UUID = #{uuid}
+    </select>
+
+    <update id="update"
+            parameterType="Gallery">
+        UPDATE TB_GALLERY
+        SET GALLERY_TITLE    = #{galleryTitle},
+            GALLERY_DATA     = #{galleryData},
+            GALLERY_FILE_URL = #{galleryFileUrl}
+        WHERE UUID = #{uuid}
+    </update>
+
+<!--    public int delete(String uuid);-->
+    <delete id="delete"
+            parameterType="String">
+        DELETE
+        TB_GALLERY WHERE UUID = #{uuid}
+    </delete>
+</mapper>
+
+
+
+
+
+
+

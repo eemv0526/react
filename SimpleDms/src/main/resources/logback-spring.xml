@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+	<!--   org.example.simpledms 사용 : 콘솔에 출력-->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%green(%d) %magenta(%5p) %cyan([%c]) %m%n</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- TODO: Logger :패키지명 수정 -->
+	<logger name="com.simplecoding.simpledms" level="DEBUG" appender-ref="console" />
+	<logger name="jdbc.sqlonly" level="INFO" appender-ref="console" />
+	<logger name="jdbc.resultsettable" level="INFO" appender-ref="console" />
+
+	<!-- Root Logger : 기본 OFF -> INFO(상세정보) -->
+	<root level="ERROR">
+		<appender-ref ref="console" />
+	</root>
+</configuration>

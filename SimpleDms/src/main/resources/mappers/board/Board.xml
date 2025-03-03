@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.simplecoding.simpledms.mapper.board.BoardMapper">
+
+
+    <select id="selectBoardList"
+            parameterType="Criteria"
+            resultType="Board">
+        SELECT *
+        FROM BOARD
+        WHERE BOARD_TITLE LIKE '%' || #{searchKeyword} || '%'
+           OR BOARD_CONTENT LIKE '%' || #{searchKeyword} || '%'
+        OFFSET #{pageIndex} * #{recordCountPerPage} ROWS
+            FETCH NEXT #{recordCountPerPage} ROWS ONLY
+    </select>
+
+    <select id="selectBoardListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*)
+        FROM BOARD
+        WHERE BOARD_TITLE LIKE '%' || #{searchKeyword} || '%'
+           OR BOARD_CONTENT LIKE '%' || #{searchKeyword} || '%'
+    </select>
+
+
+    <insert id="insert" parameterType="Board">
+        INSERT INTO BOARD (
+            BOARD_ID, BOARD_TITLE, BOARD_CONTENT, RATING, BOARD_URL, BOARD_DATA, BOARD_WRITER
+        ) VALUES (
+                     BOARD_SEQ.NEXTVAL,
+                     #{boardTitle},
+                     #{boardContent},
+                     #{rating},
+                     #{boardUrl},
+                     #{boardData},
+                     #{boardWriter}
+                 )
+    </insert>
+
+
+<!--       URL생성   -->
+    <select id="selectGenerateBoardId" resultType="int">
+        SELECT BOARD_SEQ.CURRVAL FROM DUAL
+    </select>
+
+
+<!--상세조회-->
+    <select id="select" parameterType="int" resultType="Board">
+        SELECT * FROM BOARD
+        WHERE BOARD_ID = #{boardId}
+    </select>
+
+
+<!--       URL 업데이트 xml   -->
+    <update id="updateboardIdUrl" parameterType="Board">
+        UPDATE BOARD
+        SET BOARD_URL = #{boardUrl}
+        WHERE BOARD_ID = #{boardId}
+    </update>
+
+
+
+
+    <!--수정-->
+    <update id="update" parameterType="Board">
+        UPDATE BOARD
+        SET
+            BOARD_TITLE = #{boardTitle},
+            BOARD_CONTENT = #{boardContent},
+            RATING = #{rating},
+            BOARD_URL = #{boardUrl},
+            BOARD_DATA = #{boardData}
+        WHERE BOARD_ID = #{boardId}
+    </update>
+
+    <!--삭제-->
+    <delete id="delete" parameterType="int">
+        DELETE FROM BOARD
+        WHERE BOARD_ID = #{boardId}
+    </delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

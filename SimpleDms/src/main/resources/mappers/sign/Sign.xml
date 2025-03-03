@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.simpledms.mapper.sign.SignMapper">
+
+
+    <!-- 회원가입 -->
+    <insert id="insert" parameterType="Sign">
+        INSERT INTO SIGN(EMAIL,PASSWORD,NAME,CODE_NAME)
+        VALUES(#{email},#{password},#{name},#{codeName})
+    </insert>
+
+    <!-- 우리 회원인지 확인 -->
+    <select id="existsById" parameterType="String" resultType="long">
+        SELECT COUNT(*) FROM SIGN
+        WHERE EMAIL = #{email}
+    </select>
+
+    <!-- 회원 상세조회 -->
+    <select id="selectSign" parameterType="String" resultType="Sign">
+        SELECT * FROM SIGN
+        WHERE EMAIL = #{email}
+    </select>
+
+
+
+
+
+</mapper>

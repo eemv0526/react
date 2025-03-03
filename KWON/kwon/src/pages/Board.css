@@ -1,0 +1,32 @@
+/* 별표 색상 */
+.text-warning {
+    color: #ffc107 !important;
+  }
+  
+  /* 행의 배경색을 추가적으로 조절하고 싶은 경우 */
+  .table-light {
+    background-color: #f9f9f9;
+  }
+  
+  .table-info {
+    background-color: #d1ecf1;
+  }
+  
+  .table-warning {
+    background-color: #fff3cd;
+  }
+  
+  .table-danger {
+    background-color: #f8d7da;
+  }
+  
+  /* 버튼 스타일 */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
