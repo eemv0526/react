@@ -18,6 +18,11 @@ import BoardUpdate from './pages/BoardUpdate'
 import CardAdd from  './pages/CardAdd'
 import CardUpdate from './pages/CardUpdate'
 import Anime from './pages/Anime'
+import Comic from './pages/Comic'
+import ComicAdd from './pages/ComicAdd'
+import ComicDetail from './pages/ComicDetail'
+import ComicUpdate from './pages/ComicUpdate'
+import Cart from './pages/Cart'
 
 function App() {
   return (
@@ -42,6 +47,11 @@ function App() {
           <Route path="/cardadd/:uuid" element={<CardAdd />} />
           <Route path="/cardupdate/:animeId" element={<CardUpdate />} />
           <Route path="/anime" element={<Anime />} />
+          <Route path="/comic" element={<Comic />} />
+          <Route path="/comicadd" element={<ComicAdd />} />
+          <Route path="/comicdetail/:uuid" element={<ComicDetail />} />
+          <Route path="/comicupdate/:uuid" element={<ComicUpdate />} />
+          <Route path="/cart" element={<Cart />} />
         
         </Routes>
   </div>

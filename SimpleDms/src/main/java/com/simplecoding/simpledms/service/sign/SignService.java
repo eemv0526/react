@@ -3,7 +3,7 @@ package com.simplecoding.simpledms.service.sign;
 
 import com.simplecoding.simpledms.mapper.sign.SignMapper;
 import com.simplecoding.simpledms.security.jwt.JwtUtils;
-import com.simplecoding.simpledms.vo.auth.Member;
+
 import com.simplecoding.simpledms.vo.dto.UserReqDto;
 import com.simplecoding.simpledms.vo.dto.UserResDto;
 import com.simplecoding.simpledms.vo.sign.Sign;

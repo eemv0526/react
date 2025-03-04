@@ -51,4 +51,10 @@ public class Criteria implements Serializable {
 
 	private String updateTime;
 
+	private String email;
+
+
+
+
+
 }

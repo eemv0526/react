@@ -1,7 +1,7 @@
 package com.simplecoding.simpledms.mapper.sign;
 
 
-import com.simplecoding.simpledms.vo.auth.Member;
+
 import com.simplecoding.simpledms.vo.sign.Sign;
 import org.apache.ibatis.annotations.Mapper;
 

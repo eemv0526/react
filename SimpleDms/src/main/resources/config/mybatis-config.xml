@@ -14,16 +14,14 @@
     <!-- TODO: 별칭 설정 -->
     <typeAliases>
         <typeAlias type="com.simplecoding.simpledms.vo.common.Criteria" alias="Criteria"/>
-        <typeAlias type="com.simplecoding.simpledms.vo.auth.Member" alias="Member"/>
-        <typeAlias type="com.simplecoding.simpledms.vo.basic.Dept" alias="Dept"/>
-        <typeAlias type="com.simplecoding.simpledms.vo.basic.Emp" alias="Emp"/>
-        <typeAlias type="com.simplecoding.simpledms.vo.advanced.FileDb" alias="FileDb"/>
-        <typeAlias type="com.simplecoding.simpledms.vo.advanced.Gallery" alias="Gallery"/>
         <typeAlias type="com.simplecoding.simpledms.vo.home.Home" alias="Home"/>
         <typeAlias type="com.simplecoding.simpledms.vo.gongji.Gongji" alias="Gongji"/>
         <typeAlias type="com.simplecoding.simpledms.vo.sign.Sign" alias="Sign"/>
         <typeAlias type="com.simplecoding.simpledms.vo.board.Board" alias="Board"/>
         <typeAlias type="com.simplecoding.simpledms.vo.anime.Anime" alias="Anime"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.comic.Comic" alias="Comic"/>
+        <typeAlias type="com.simplecoding.simpledms.vo.cart.Cart" alias="Cart"/>
+
 
     </typeAliases>
 

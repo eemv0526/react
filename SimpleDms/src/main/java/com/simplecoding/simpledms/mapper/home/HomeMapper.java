@@ -1,6 +1,6 @@
 package com.simplecoding.simpledms.mapper.home;
 
-import com.simplecoding.simpledms.vo.advanced.FileDb;
+
 import com.simplecoding.simpledms.vo.common.Criteria;
 import com.simplecoding.simpledms.vo.home.Home;
 import org.apache.ibatis.annotations.Mapper;

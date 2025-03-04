@@ -52,7 +52,8 @@ public class WebSecurityConfig {
                 "/css/**",
                 "/js/**",
                 "/api/advanced/fileDb/{uuid}",
-                "/api/home/home/{uuid}"
+                "/api/home/home/{uuid}",
+                "/api/comic/comic/{uuid}"
         );
     }
 

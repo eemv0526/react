@@ -1,6 +1,6 @@
 package com.simplecoding.simpledms.mapper.gongji;
 
-import com.simplecoding.simpledms.vo.basic.Dept;
+
 import com.simplecoding.simpledms.vo.common.Criteria;
 import com.simplecoding.simpledms.vo.gongji.Gongji;
 import org.apache.ibatis.annotations.Mapper;

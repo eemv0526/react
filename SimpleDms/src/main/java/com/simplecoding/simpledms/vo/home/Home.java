@@ -42,19 +42,4 @@ public class Home {
     }
 
 
-
-
-    //    생성자 : homeUrl 제외한 생성자
-//    public Home(String uuid, String homeTitle, String homeText, byte[] homeData) {
-//        this.uuid = uuid;
-//        this.homeTitle = homeTitle;
-//        this.homeText = homeText;
-//        this.homeData = homeData;
-//    }
-//    //    생성자 : uuid, homeUrl 제외한 생성자
-//    public Home(String homeTitle, String homeText, byte[] homeData) {
-//        this.homeTitle = homeTitle;
-//        this.homeText = homeText;
-//        this.homeData = homeData;
-//    }
 }

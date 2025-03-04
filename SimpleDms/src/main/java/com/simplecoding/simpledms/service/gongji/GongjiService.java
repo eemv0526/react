@@ -1,7 +1,7 @@
 package com.simplecoding.simpledms.service.gongji;
 
 import com.simplecoding.simpledms.mapper.gongji.GongjiMapper;
-import com.simplecoding.simpledms.vo.basic.Dept;
+
 import com.simplecoding.simpledms.vo.common.Criteria;
 import com.simplecoding.simpledms.vo.gongji.Gongji;
 import lombok.RequiredArgsConstructor;

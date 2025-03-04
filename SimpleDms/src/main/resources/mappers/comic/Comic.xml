@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.simpledms.mapper.comic.ComicMapper">
+
+    <select id="selectComicList"
+            parameterType="Criteria"
+            resultType="Comic">
+        SELECT *
+        FROM BOOK
+        WHERE BOOK_TITLE LIKE '%' || #{searchKeyword} || '%'
+        OFFSET #{pageIndex} * #{recordCountPerPage} ROWS FETCH NEXT #{recordCountPerPage} ROWS ONLY
+    </select>
+
+    <select id="selectComicListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*)
+        FROM BOOK
+        WHERE BOOK_TITLE LIKE '%' || #{searchKeyword} || '%'
+    </select>
+
+    <insert id="insert"
+            parameterType="Comic">
+        INSERT INTO BOOK (UUID,
+                          BOOK_TITLE,
+                          BOOK_CONTENT,
+                          BOOK_DATA,
+                          BOOK_URL,
+                          BOOK_PRICE)
+        VALUES (#{uuid},
+                #{bookTitle},
+                #{bookContent},
+                #{bookData},
+                #{bookUrl},
+                #{bookPrice})
+    </insert>
+
+    <select id="selectComic"
+            parameterType="String"
+            resultType="Comic">
+        SELECT *
+        FROM BOOK
+        WHERE UUID = #{uuid}
+    </select>
+
+
+    <update id="update"
+            parameterType="Comic">
+        UPDATE BOOK
+        SET BOOK_TITLE   = #{bookTitle},
+            BOOK_CONTENT = #{bookContent},
+            BOOK_DATA    = #{bookData},
+            BOOK_URL     = #{bookUrl},
+            BOOK_PRICE     = #{bookPrice}
+        WHERE UUID = #{uuid}
+    </update>
+
+    <delete id="delete"
+            parameterType="String">
+        DELETE
+        BOOK WHERE UUID = #{uuid}
+    </delete>
+
+
+
+
+
+
+</mapper>

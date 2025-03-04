@@ -2,7 +2,7 @@ package com.simplecoding.simpledms.controller.gongji;
 
 
 import com.simplecoding.simpledms.service.gongji.GongjiService;
-import com.simplecoding.simpledms.vo.basic.Dept;
+
 import com.simplecoding.simpledms.vo.common.Criteria;
 import com.simplecoding.simpledms.vo.dto.ResultDto;
 import com.simplecoding.simpledms.vo.gongji.Gongji;

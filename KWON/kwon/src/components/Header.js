@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHome, FaRegBell, FaSignInAlt, FaUserPlus, FaSignOutAlt, FaBook } from 'react-icons/fa'; // 아이콘 추가
+import { Link } from 'react-router-dom';
+import { GiShoppingCart } from 'react-icons/gi';
 
-const Header = () => {
+const Header = ({ cartItemCount }) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
   const [email, setEmail] = useState(''); // 이메일 상태 관리
@@ -18,6 +20,12 @@ const Header = () => {
     }
   }, []);
 
+
+
+
+
+
+  
   // 로그아웃 핸들러
   const handleLogout = () => {
     localStorage.removeItem('jwt'); // JWT 제거
@@ -87,6 +95,9 @@ const Header = () => {
     navigate('/');
   };
 
+
+  
+
   return (
     <header style={headerStyle}>
       <div style={logoContainerStyle}>
@@ -103,7 +114,12 @@ const Header = () => {
           </li>
           <li>
             <a href="/anime" style={linkStyle}>
-             추천페이지
+             추천 만화책
+            </a>
+          </li>
+          <li>
+            <a href="/comic" style={linkStyle}>
+             만화책 상품
             </a>
           </li>
           <li>
@@ -116,6 +132,17 @@ const Header = () => {
               <FaBook style={{ marginRight: '8px' }} /> 애니게시판
             </a>
           </li>
+          <li className="me-4">
+  <Link to="/cart" style={{ color: 'black' }} className="position-relative">
+    <GiShoppingCart size={24} /> 장바구니
+    {/* 장바구니 아이콘 옆에 아이템 수 표시 */}
+    {cartItemCount > 0 && (
+      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {cartItemCount}
+      </span>
+    )}
+  </Link>
+</li>
           {!isLoggedIn ? (
             <>
               <li>
