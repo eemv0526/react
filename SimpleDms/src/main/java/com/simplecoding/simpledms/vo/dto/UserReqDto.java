@@ -21,5 +21,4 @@ public class UserReqDto {
     private String password; // PASSWORD
 
 
-
 }

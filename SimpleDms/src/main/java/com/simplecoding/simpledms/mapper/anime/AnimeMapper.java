@@ -18,5 +18,5 @@ public interface AnimeMapper {
     public int update(Anime anime);
     public int delete(int animeId);
     Double getAverageRatingByUuid(@Param("uuid") String uuid);
-
+    List<Anime> findAnimeByEmail(String email);
 }

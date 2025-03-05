@@ -114,7 +114,7 @@ const Header = ({ cartItemCount }) => {
           </li>
           <li>
             <a href="/anime" style={linkStyle}>
-             추천 만화책
+             추천 애니
             </a>
           </li>
           <li>
@@ -133,7 +133,9 @@ const Header = ({ cartItemCount }) => {
             </a>
           </li>
           <li className="me-4">
-  <Link to="/cart" style={{ color: 'black' }} className="position-relative">
+          <Link to="/cart" style={{ color: 'black', marginLeft: '5px' }} className="position-relative">
+ 
+
     <GiShoppingCart size={24} /> 장바구니
     {/* 장바구니 아이콘 옆에 아이템 수 표시 */}
     {cartItemCount > 0 && (
@@ -143,6 +145,16 @@ const Header = ({ cartItemCount }) => {
     )}
   </Link>
 </li>
+
+{isLoggedIn && (
+  <li>
+    <a href="/mypage" style={linkStyle}>
+      마이페이지
+    </a>
+  </li>
+)}
+
+
           {!isLoggedIn ? (
             <>
               <li>

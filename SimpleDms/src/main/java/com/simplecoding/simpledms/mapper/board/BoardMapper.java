@@ -33,6 +33,6 @@ public interface BoardMapper {
 
     public int update(Board board);  //수정
     public int delete(int boardId);  //삭제
-
+    List<Board> findBoardsByWriter(String email);
 
 }

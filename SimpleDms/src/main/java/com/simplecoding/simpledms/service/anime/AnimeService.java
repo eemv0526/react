@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AnimeSerivce {
+public class AnimeService {
 
 
 private final AnimeMapper animeMapper;
@@ -56,7 +56,9 @@ private final AnimeMapper animeMapper;
     }
 
 
-
+    public List<Anime> getAnimeByEmail(String email) {
+        return animeMapper.findAnimeByEmail(email);
+    }
 
 
 

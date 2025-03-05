@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(authority);
 
-        return new MemberDto(sign.getEmail(), sign.getPassword(), authorities);
+        return new MemberDto(sign.getEmail(), sign.getPassword(), authorities, sign.getName());
     }
 
 }

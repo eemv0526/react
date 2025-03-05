@@ -1,6 +1,6 @@
 package com.simplecoding.simpledms.controller.anime;
 
-import com.simplecoding.simpledms.service.anime.AnimeSerivce;
+import com.simplecoding.simpledms.service.anime.AnimeService;
 import com.simplecoding.simpledms.vo.anime.Anime;
 import com.simplecoding.simpledms.vo.common.Criteria;
 import com.simplecoding.simpledms.vo.dto.ResultDto;
@@ -21,7 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AnimeController {
 
-private final AnimeSerivce animeService;
+private final AnimeService animeService;
 
 
 

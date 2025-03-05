@@ -21,13 +21,14 @@ public class UserResDto {
 
     private String email; // 유저 이메일
     private String codeName; // 권한명
-
+    private String name; // 이 필드 추가
 
     // 생성자 : accessToken | email | codeName
-    public UserResDto(String accessToken, String email, String codeName) {
+    public UserResDto(String accessToken, String email, String codeName, String name) {
         this.accessToken = accessToken;
         this.email = email;
         this.codeName = codeName;
+        this.name = name; // 이 부분 추가
     }
 
     // TODO: 비밀번호(password)랑 이름(name)도 보낼 수 있지만 필요 없으면 안 보내도 됨

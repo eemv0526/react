@@ -23,7 +23,7 @@ import ComicAdd from './pages/ComicAdd'
 import ComicDetail from './pages/ComicDetail'
 import ComicUpdate from './pages/ComicUpdate'
 import Cart from './pages/Cart'
-
+import MyPage from './pages/MyPage'
 function App() {
   return (
     <BrowserRouter>     
@@ -52,7 +52,7 @@ function App() {
           <Route path="/comicdetail/:uuid" element={<ComicDetail />} />
           <Route path="/comicupdate/:uuid" element={<ComicUpdate />} />
           <Route path="/cart" element={<Cart />} />
-        
+          <Route path="/mypage" element={<MyPage />} />
         </Routes>
   </div>
   </BrowserRouter>
@@ -61,10 +61,6 @@ function App() {
 
 
 
-// MyPage 컴포넌트
-function MyPage() {
-  return <h1>MyPage</h1>;
-}
 
 
 

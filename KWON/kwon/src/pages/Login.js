@@ -11,6 +11,7 @@ function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
+    name:'',
   });
 
   axios.interceptors.request.use(

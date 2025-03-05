@@ -78,7 +78,10 @@ private final BoardMapper boardMapper;
 
 
 
-
+    // 이메일에 해당하는 게시글 조회
+    public List<Board> getBoardsByEmail(String email) {
+        return boardMapper.findBoardsByWriter(email);
+    }
 
 
 

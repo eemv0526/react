@@ -2,6 +2,7 @@ package com.simplecoding.simpledms.service.sign;
 
 
 import com.simplecoding.simpledms.mapper.sign.SignMapper;
+import com.simplecoding.simpledms.security.dto.MemberDto;
 import com.simplecoding.simpledms.security.jwt.JwtUtils;
 
 import com.simplecoding.simpledms.vo.dto.UserReqDto;
@@ -72,11 +73,17 @@ public class SignService {
         String jwt = jwtUtils.generateJwtToken(authentication);
         // (4) 혹시 권한정보가 있으면 그것도 정의(생략) : ROLE_ADMIN , ROLE_USER
         String codeName = new ArrayList(authentication.getAuthorities()).get(0).toString();
+
+        MemberDto memberDto = (MemberDto) authentication.getPrincipal();
+        String name = memberDto.getName();
         // (5) 택배상자(DTO)에 담기 : 1) 웹토큰, 2) 유저정보
+
+
+
         //      => 프론트로 전송
         return new UserResDto(jwt, // 웹토큰
                 userReqDto.getEmail(), // 이메일
-                codeName); // 권한명
+                codeName,name); // 권한명
     }
 
 

@@ -17,12 +17,13 @@ import java.util.Collection;
 @Setter
 @ToString
 public class MemberDto extends User {
-
+    private String name; // 추가된 필드
     private String email; // 로그인 ID
 
-    public MemberDto(String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public MemberDto(String email, String password, Collection<? extends GrantedAuthority> authorities, String name) {
         super(email, password, authorities);
         this.email = email;
+        this.name = name;
     }
 
 }

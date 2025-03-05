@@ -72,6 +72,11 @@
     </select>
 
 
+    <select id="findAnimeByEmail" resultType="Anime">
+        SELECT RATING, ANIME_COMMENT
+        FROM ANIME_RV
+        WHERE EMAIL = #{email}
+    </select>
 
 
 </mapper>
